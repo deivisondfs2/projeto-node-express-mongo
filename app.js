@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressNunjuncks = require('express-nunjucks');
 var methodOverride = require('method-override');
+require('./models/musics');
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/musics', {
