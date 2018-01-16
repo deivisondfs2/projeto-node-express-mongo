@@ -14,20 +14,19 @@
             </tr>
         </thead>
         <tbody>
-            {% set contador = 0 %}
+            
             {% for musica in musicas %}
-                {% contador += 1 %}
                 <tr>
-                    <td>{{contador}}</td>
+                    <td>1</td>
                     <td>{{musica.nome}}</td>
                     <td>{{musica.artista}}</td>
                     <td>
+                        {% for i in range(0, musica.estrelas) -%}
                             <span	class="glyphicon	glyphicon-star"></span>
-                            <span	class="glyphicon	glyphicon-star"></span>
-                            <span	class="glyphicon	glyphicon-star"></span>
+                        {%- endfor %}
                     </td>
                     <td>
-                            <a	href="#"	class="btn	btn-primary">Editar</a>
+                            <a	href="/edit/{{musica._id}}"	class="btn	btn-primary">Editar</a>
                             <a	href="#"	class="btn	btn-danger">Excluir</a>
                     </td>
                 </tr>

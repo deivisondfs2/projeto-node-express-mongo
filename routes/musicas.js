@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 
 router.get('/',	(req,	res,	next)	=>	{
     mongoose.model('Musica').find().then((musicas) => {
-        res.render('index', {
+        res.render('index.njk', {
             musicas : musicas
             });
     },next);    
@@ -25,8 +25,12 @@ router.post('/add', (req,res,next)=>{
 });
 
 router.get('/edit/:id', (req,res,next)=>{
-
+    const	{id}	=	req.params;
+    mongoose.model('Musica').findOne({_id:	id}).then((musica)	=>	{
+            res.render('edit.njk',	{musica:	musica});
+    },next);
 });
+
 
 router.put('/edit/:id',	(req,res,next)=>{
 
