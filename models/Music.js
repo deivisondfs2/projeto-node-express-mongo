@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var MusicaSchema = new mongoose.Schema({
+var MusicSchema = new mongoose.Schema({
     nome : {
         type: String,
         require: true
@@ -15,4 +15,4 @@ var MusicaSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Musica', MusicaSchema);
+module.exports = mongoose.model('Music', MusicSchema);

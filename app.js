@@ -6,14 +6,20 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressNunjuncks = require('express-nunjucks');
 var methodOverride = require('method-override');
-require('./models/musics');
+var dataBase = require('./config/db');
+require('./models/Music');
+
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/musics', {
-  useMongoClient: true,
-});
 
-var index = require('./routes/musicas');
+mongoose.connect(dataBase.conectionDB, {
+  useMongoClient: true,
+}).then(() =>  console.log('connection succesful'))
+  .catch((err) => console.error(err));
+  
+require('./controllers/MusicsControllers');
+
+var index = require('./routes/musicsRouter');
 
 var app = express();
 

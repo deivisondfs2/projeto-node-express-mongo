@@ -15,19 +15,19 @@
         </thead>
         <tbody>
             
-            {% for musica in musicas %}
+            {% for music in musics %}
                 <tr>
                     <td>1</td>
-                    <td>{{musica.nome}}</td>
-                    <td>{{musica.artista}}</td>
+                    <td>{{music.nome}}</td>
+                    <td>{{music.artista}}</td>
                     <td>
-                        {% for i in range(0, musica.estrelas) -%}
+                        {% for i in range(0, music.estrelas) -%}
                             <span	class="glyphicon	glyphicon-star"></span>
                         {%- endfor %}
                     </td>
                     <td>
-                            <a	href="/edit/{{musica._id}}"	class="btn	btn-primary">Editar</a>
-                            <a	href="/delete/{{musica._id}}" class="btn btn-danger">Excluir</a>
+                            <a	href="/edit/{{music._id}}"	class="btn	btn-primary">Editar</a>
+                            <a	href="/delete/{{music._id}}" class="btn btn-danger">Excluir</a>
                     </td>
                 </tr>
             {% endfor %}
